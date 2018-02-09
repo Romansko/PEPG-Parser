@@ -1,0 +1,67 @@
+<!-- PE & PG Parser made by Roman Koifman (c) 2018 -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">   
+        <title>PE & PG parser</title>
+        <!-- jQuery v3.3.1 Lib -->
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <!-- jCanvas v20.1.4 Lib -->
+        <script type="text/javascript" src="js/jcanvas.min.js"></script>
+        <!-- Program logics -->
+        <script type="text/javascript" src="js/logics.js"></script>
+    </head>
+
+    <body>
+        <h1>Virtual Memory & Paging parser</h1>
+        <hr/>
+        
+        <div class="grid-container"><!-- settings div container -->
+           <div class="grid-item"> 
+                <h2>Choose cpu type:</h2>           
+                <form action="" style="padding-left:30px;" id="cpuset">
+                        <input type="radio" name="cpu" value="x32" checked>x86_32<br>
+                        <input type="radio" name="cpu" value="x64">x86_64<br>
+                </form>
+           </div>
+           <div class="grid-item">
+                <h2>Choose Mode:</h2>
+                <div style="text-align:center;"></div>
+                <form action="" style="padding-left:30px;" id="modeset">
+                    <input type="radio" name="mode" value="cm" disabled>Compability Mode<br>
+                    <input type="radio" name="mode" value="lm" disabled>Long Mode<br>
+                    <input type="radio" name="mode" value="smm" disabled>System Managment Mode (SMM)<br>
+                </form>
+            </div>
+            <div class="grid-item">
+                <h2><input type="checkbox" id="pg" value="pg">Enable Paging</h2>
+                <div style="padding-left:20px;">
+                    <u>Paging size:</u>
+                    <form action="" style="padding-left:20px;padding-top:10px;" id="pgsize">
+                            <input type="radio" name="pgSize" value="k4" disabled>4K paging<br>
+                            <input type="radio" name="pgSize" value="m2" disabled>2M paging<br>
+                            <input type="radio" name="pgSize" value="g1" disabled>1G paging<br>
+                    </form>
+                </div>  
+            </div>
+        </div><!-- settings div container -->
+        <hr/>
+        <div class="grid-item">
+            Linear Address: 
+            <input type="text" style="width: 300px;" id="linearAddressTextBox">
+            <input type="radio" name="linearAddress" id="linearAddrrHex" checked>Hex
+            <input type="radio" name="linearAddress" id="linearAddrrDec">Decimal
+            <input type="radio" name="linearAddress" id="linearAddrrBin">Binary
+        </div>
+        <div class="grid-item">
+                Physical Address: 
+                <input type="text" style="width: 300px;" id="physicalAddressTextBox">
+                <input type="radio" name="physicalAddress" id="physicalAddrrHex" checked>Hex
+                <input type="radio" name="physicalAddress" id="physicalAddrrDec">Decimal
+                <input type="radio" name="physicalAddress" id="physicalAddrrBin">Binary
+        </div>
+
+    </body>
+</html>
+
