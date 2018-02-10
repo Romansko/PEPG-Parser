@@ -9,6 +9,8 @@
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <!-- jCanvas v20.1.4 Lib -->
         <script type="text/javascript" src="js/jcanvas.min.js"></script>
+        <!-- BigInteger Lib -->
+        <script type="text/javascript" src="js/BigInteger.min.js"></script>
         <!-- Program logics -->
         <script type="text/javascript" src="js/logics.js"></script>
     </head>
@@ -21,8 +23,8 @@
            <div class="grid-item"> 
                 <h2>Choose cpu type:</h2>           
                 <form action="" style="padding-left:30px;" id="cpuset">
-                        <input type="radio" name="cpu" value="x32" checked>x86_32<br>
-                        <input type="radio" name="cpu" value="x64">x86_64<br>
+                        <input type="radio" name="cpu" id="x32" checked>x86_32<br>
+                        <input type="radio" name="cpu" id="x64">x86_64<br>
                 </form>
            </div>
            <div class="grid-item">
@@ -53,6 +55,7 @@
             <input type="radio" name="linearAddress" id="linearAddrrHex" checked>Hex
             <input type="radio" name="linearAddress" id="linearAddrrDec">Decimal
             <input type="radio" name="linearAddress" id="linearAddrrBin">Binary
+            <button id="linClear" style="margin-left:10px;">Clear</button>
         </div>
         <div class="grid-item">
                 Physical Address: 
@@ -60,12 +63,13 @@
                 <input type="radio" name="physicalAddress" id="physicalAddrrHex" checked>Hex
                 <input type="radio" name="physicalAddress" id="physicalAddrrDec">Decimal
                 <input type="radio" name="physicalAddress" id="physicalAddrrBin">Binary
+                <button id="phyClear" style="margin-left:10px;">Clear</button>
         </div>
         <button class="btn" style="display: block; margin: 0 auto;" id="parseBtn">Parse address</button>
         <hr/>
         <canvas width="1000px" height="600px id="Tables" style="border: 1px solid black; display: block; margin: 0 auto;"></canvas>
         <hr/>
-
+        <div id="data"></div>
 
 
 
