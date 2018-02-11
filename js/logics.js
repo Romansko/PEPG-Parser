@@ -434,23 +434,55 @@ function calcData() {
     switch (getMode()){
         case X32MODE:
         str += "We are in x32. So offset is 12 lowest bits of the linear address:<br/>";
-        str += linear + "/2^12 = " + (linear=linear.divide(Math.pow(2,12))) + ". The remainder is the offset: "+ offset+".<br/>";
-        str += "The next 9 bits are the PT entrance: "+linear+"/2^9 = "+(linear=linear.divide(Math.pow(2,9)));
-        str += ". The remainder is the PT entrance: "+pt+".<br/>";
-        str += "The next 9 bits are the PD entrance: "+pd+". The rest of the bits are sign extend and not relevant.";
+        str += linear + "/2^12 = " + (linear=linear.divide(Math.pow(2,12))) + ".<br/>The remainder is the offset: "+ offset+".<br/>";
+        str += "The next 10 bits are the PT entrance: "+linear+"/2^10 = "+(linear=linear.divide(Math.pow(2,10)));
+        str += ".<br/>The remainder is the PT entrance: "+pt+".<br/>";
+        str += "The next 10 bits are the PD entrance: "+pd+". The rest of the bits are sign extend and are not relevant.";
         str += "<br/><br/>Now let's take a look at the physical address: "+physical+". We are interested in the bits 12-31<br/>";
         str += "which responsible for the page frame. So "+physical+"/2^12 = " +physical.divide(Math.pow(2,12))+".";
         str += " Our 20 bits value is "+frame+".<br/>";
         str += "<br/>To conclude: PD["+pd+"] = \""+pdVal+"\", PT["+pt+"] = \""+ptVal+"\", page offset = "+offset+".<br/><br/>";
         break;
         case X64LONG4K:
-            str +="Comming soon."
+        str += "We are in x64_4K. So offset is 12 lowest bits of the linear address:<br/>";
+        str += linear + "/2^12 = " + (linear=linear.divide(Math.pow(2,12))) + ".<br/>The remainder is the offset: "+ offset+".<br/>";
+        str += "The next 9 bits are the PT entrance: "+linear+"/2^9 = "+(linear=linear.divide(Math.pow(2,9)));
+        str += ".<br/>The remainder is the PT entrance: "+pt+".<br/>";
+        str += "The next 9 bits are the PD entrance: "+linear+"/2^9 = "+(linear=linear.divide(Math.pow(2,9)));
+        str += ".<br/>The remainder is the PD entrance: "+pd+".<br/>";
+        str += "The next 9 bits are the PDP entrance: "+linear+"/2^9 = "+(linear=linear.divide(Math.pow(2,9)));
+        str += ".<br/>The remainder is the PDP entrance: "+pdp+".<br/>";
+        str += "The next 9 bits are the PML-4 entrance: "+pml4+". The rest of the bits are sign extend and are not relevant.";
+        str += "<br/><br/>Now let's take a look at the physical address: "+physical+". We are interested in the bits 12-51<br/>";
+        str += "which responsible for the page frame. So "+physical+"/2^12 = " +physical.divide(Math.pow(2,12))+".";
+        str += " Our 40 bits value is "+frame+".<br/>";
+        str += "<br/>To conclude: PML-4["+pml4+"] = "+pml4Val+", PDP["+pdp+"] = "+pdpVal+", PD["+pd+"] = "+pdVal+
+        ", PT["+pt+"] = "+ptVal+", page offset = "+offset+".\n";
         break;
         case X64LONG2M:
-            str +="Comming soon."
+        str += "We are in x64_2M. So offset is 21 lowest bits of the linear address:<br/>";
+        str += linear + "/2^21 = " + (linear=linear.divide(Math.pow(2,21))) + ".<br/>The remainder is the offset: "+ offset+".<br/>";
+        str += "The next 9 bits are the PD entrance: "+linear+"/2^9 = "+(linear=linear.divide(Math.pow(2,9)));
+        str += ".<br/>The remainder is the PD entrance: "+pd+".<br/>";
+        str += "The next 9 bits are the PDP entrance: "+linear+"/2^9 = "+(linear=linear.divide(Math.pow(2,9)));
+        str += ".<br/>The remainder is the PDP entrance: "+pdp+".<br/>";
+        str += "The next 9 bits are the PML-4 entrance: "+pml4+". The rest of the bits are sign extend and are not relevant.";
+        str += "<br/><br/>Now let's take a look at the physical address: "+physical+". We are interested in the bits 12-51<br/>";
+        str += "which responsible for the page frame. So "+physical+"/2^12 = " +physical.divide(Math.pow(2,12))+".";
+        str += " Our 40 bits value is "+frame+".<br/>";
+        str += "<br/>To conclude: PML-4["+pml4+"] = "+pml4Val+", PDP["+pdp+"] = "+pdpVal+", PD["+pd+"] = "+pdVal+
+        ", page offset = "+offset+".\n";
         break;
         case X64LONG1G:
-            str +="Comming soon."
+        str += "We are in x64_1G. So offset is 30 lowest bits of the linear address:<br/>";
+        str += linear + "/2^30 = " + (linear=linear.divide(Math.pow(2,30))) + ".<br/>The remainder is the offset: "+ offset+".<br/>";
+        str += "The next 9 bits are the PDP entrance: "+linear+"/2^9 = "+(linear=linear.divide(Math.pow(2,9)));
+        str += ".<br/>The remainder is the PDP entrance: "+pdp+".<br/>";
+        str += "The next 9 bits are the PML-4 entrance: "+pml4+". The rest of the bits are sign extend and are not relevant.";
+        str += "<br/><br/>Now let's take a look at the physical address: "+physical+". We are interested in the bits 12-51<br/>";
+        str += "which responsible for the page frame. So "+physical+"/2^12 = " +physical.divide(Math.pow(2,12))+".";
+        str += " Our 40 bits value is "+frame+".<br/>";
+        str += "<br/>To conclude: PML-4["+pml4+"] = "+pml4Val+", PDP["+pdp+"] = "+pdpVal+", page offset = "+offset+".\n";
         break;
         X64COMP:
             str +="Comming soon."
