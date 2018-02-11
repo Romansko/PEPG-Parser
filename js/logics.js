@@ -232,7 +232,7 @@ function parseAddress() {
             physicalA = physicalA.divide(x32Offset);
             ptVal = physicalA.toJSNumber();
             frame = physicalA.mod(lFrameBits).toJSNumber();
-            //ptVal = frame;
+            ptVal = frame;
         }
         var toPrint = "PD["+pd+"] = \""+pdVal+"\", PT["+pt+"] = \""+ptVal+"\", page offset = "+offset+".\n";
 
