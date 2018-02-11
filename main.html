@@ -37,13 +37,13 @@
                 </form>
             </div>
             <div class="grid-item">
-                <h2><input type="checkbox" id="pg">Enable Paging</h2>
+                <h2><input type="checkbox" id="pg" checked>Enable Paging</h2>
                 <div style="padding-left:20px;">
                     <u>Paging size:</u>
                     <form action="" style="padding-left:20px;padding-top:10px;" id="pgsize">
-                            <input type="radio" name="pgSize" value="k4" disabled>4K paging<br>
-                            <input type="radio" name="pgSize" value="m2" disabled>2M paging<br>
-                            <input type="radio" name="pgSize" value="g1" disabled>1G paging<br>
+                            <input type="radio" name="pgSize" id="k4" disabled checked>4K paging<br>
+                            <input type="radio" name="pgSize" id="m2" disabled>2M paging<br>
+                            <input type="radio" name="pgSize" id="g1" disabled>1G paging<br>
                     </form>
                 </div>  
             </div>
@@ -65,9 +65,16 @@
                 <input type="radio" name="physicalAddress" id="physicalAddrrBin">Binary
                 <button id="phyClear" style="margin-left:10px;">Clear</button>
         </div>
-        <button class="btn" style="display: block; margin: 0 auto;" id="parseBtn">Parse address</button>
+        <button class="btn" style="display: block; margin: 0 auto;" id="clearAll">Clear All</button>
         <hr/>
-        <canvas width="1000px" height="600px id="Tables" style="border: 1px solid black; display: block; margin: 0 auto;"></canvas>
+        <div class="tooltip" style="margin-left:50px;">
+            <div  style="font-size:18px; color:red;" id="hover">
+            <b>&#x27A2; How did I calculate?</b> (hover me)</div>
+            <span class="tooltiptext">
+               <div style="font-size:14px;" id="calcData"></div>
+            </span>
+        </div>
+        <canvas width="1200px" height="400px" style="border: 1px solid black; display: block; margin: 0 auto;"></canvas>
         <hr/>
         <div id="data"></div>
 

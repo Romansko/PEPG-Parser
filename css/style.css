@@ -79,3 +79,30 @@ h2 {
     top: 1px;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 600px;
+    background-color: #FFF4D3;
+    color: black;
+    text-align: left;
+    border-radius: 6px;
+    border-color: darkblue;
+    border-style: ridge;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -90px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
